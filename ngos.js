@@ -16,7 +16,7 @@ router.route("/getAllNgos")
     response.send(data)
 })
 
-router.route("/adminGetAllServices")
+router.route("/adminGetAllNgos")
 .get(authAndVerifyAdmin, async(request, response)=>{
     const data = await getAllNgos()
     response.send(data)
@@ -29,7 +29,7 @@ router.route("/getNgoById/:id")
     response.send(data)
 })
 
-router.route("/adminGetServiceById/:id")
+router.route("/adminGetNgoById/:id")
 .get(authAndVerifyAdmin, async (request, response)=>{
     const {id} = request.params
     const data = await getNgoById(id)
