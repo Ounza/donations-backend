@@ -18,7 +18,7 @@ var instance = new Razorpay({
   key_secret:process.env.key_secret
 });
 
-app.use(cors());
+app.use(cors({origin:"*"}));
 
 app.use(express.json())
 
