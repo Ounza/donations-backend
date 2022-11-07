@@ -39,6 +39,11 @@ router.route("/signup")
 
 router.route("/login")
 .post(async(request, response)=>{
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
+    );
     const {email, password} = request.body
     const userFromDB = await getUserByEmail(email)
 
