@@ -18,7 +18,7 @@ var instance = new Razorpay({
   key_secret:process.env.key_secret
 });
 
-app.use(cors({origin:"*"}));
+app.use(cors({origin:true}));
 //this part was added in order to try to fix the cors error
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
