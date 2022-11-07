@@ -38,6 +38,11 @@ app.get("/", (request, response)=>{
 })
 
 app.get("/charity-donations/order/createOrder/:grandTotal", (request, response)=>{
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
+    );
     let {grandTotal} = request.params
     const amount = grandTotal * 100
     const currency = "KSH"
