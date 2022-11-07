@@ -27,6 +27,9 @@ router.route("/signup")
     const hashedPassword = await genPassword(password)
 
     const result = await createUser({username, password:hashedPassword, role, email, createdAt: new Date()})
+    //const token = jwt.sign({id:result._id, role:result.role}, process.env.SECRET_KEY)
+    //result.token = token
+
 
     if(result.acknowledged === true){
         response.send({msg:"user created sucessfully"})
@@ -55,7 +58,6 @@ router.route("/login")
     const storedPassword = userFromDB.password
 
     const isPasswordMatch = await bcrypt.compare(password, storedPassword)
-
     if(isPasswordMatch){
         const token = jwt.sign({id:userFromDB._id, role:userFromDB.role}, process.env.SECRET_KEY)
         response.send({msg:"successful login",userFromDB:{...userFromDB, token:token}})
