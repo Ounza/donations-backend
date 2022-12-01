@@ -45,7 +45,7 @@ app.get("/charity-donations/order/createOrder/:grandTotal", (request, response)=
     );
     let {grandTotal} = request.params
     const amount = grandTotal * 100
-    const currency = "KSH"
+    const currency = "INR"
     const receipt = "receipt#123"
     instance.orders.create({amount, currency, receipt}, (error, order)=>{
         if(error){
