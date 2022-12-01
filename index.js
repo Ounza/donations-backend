@@ -38,8 +38,8 @@ app.get("/", (request, response)=>{
 })
 
 app.get("/charity-donations/order/createOrder/:grandTotal", (request, response)=>{
-    response.setHeader('Access-Control-Allow-Origin', '*');
-    response.setHeader(
+    request.setHeader('Access-Control-Allow-Origin', '*');
+    request.setHeader(
         'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
     );
