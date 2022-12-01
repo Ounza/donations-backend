@@ -49,7 +49,7 @@ app.get("/charity-donations/order/createOrder/:grandTotal", (request, response)=
     const receipt = "receipt#123"
     instance.orders.create({amount, currency, receipt}, (error, order)=>{
         if(error){
-            return response.send({error:err.message})
+            return response.send({error:error.message})
         }else{
             return response.send(order)
         }
